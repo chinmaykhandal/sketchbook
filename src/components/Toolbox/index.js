@@ -1,9 +1,11 @@
 import React from 'react'
 import styles from './index.module.css'
 import { COLORS, MENU_ITEMS } from '@/constants'
-import { useSelector } from 'react-redux'
-const Toolbox = () => {
+import { useDispatch, useSelector } from 'react-redux'
 
+import {changeColor, changeBrushSize} from "@/slice/toolboxSlice";
+const Toolbox = () => {
+    const dispatch = useDispatch();
     const activeMenuItem = useSelector((state) => state.menu.activeMenuItem)
     const showStrokeToolOption = activeMenuItem == MENU_ITEMS.PENCIL
     const showBrushToolOption = activeMenuItem == MENU_ITEMS.PENCIL || MENU_ITEMS.ERASER
